@@ -10,7 +10,7 @@ export default function Header({ onLogin, onRegister }: HeaderProps) {
     <div className="container">
       <a href="/index.html" className={css.logo}>
         <svg width="133" height="28">
-          <use href="/src/assets/symbol-defs.svg#icon-logo"></use>
+          <use href="/symbol-defs.svg#icon-logo"></use>
         </svg>
       </a>
       <nav className={css.headerNavigation}>
@@ -24,7 +24,7 @@ export default function Header({ onLogin, onRegister }: HeaderProps) {
         </ul>
         <button className={css.logInBtn} onClick={onLogin} type="button">
           <svg className={css.logInIcon} width="20" height="20">
-            <use href="/src/assets/symbol-defs.svg#icon-log-in"></use>
+            <use href="/symbol-defs.svg#icon-log-in"></use>
           </svg>
           Log in
         </button>
