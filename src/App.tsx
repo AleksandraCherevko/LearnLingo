@@ -2,7 +2,7 @@ import Header from "./components/Header";
 import Modal from "./components/Modal";
 import { useState } from "react";
 import LoginForm from "./components/LoginForm";
-import RegisterForm from "./components/RegisterForm";
+import RegistrationForm from "./components/RegistrationForm";
 
 type ModalType = "login" | "register" | null;
 
@@ -26,7 +26,7 @@ export default function App() {
       {modalType && (
         <Modal onClose={closeModal}>
           {modalType === "login" && <LoginForm />}
-          {modalType === "register" && <RegisterForm />}
+          {modalType === "register" && <RegistrationForm />}
         </Modal>
       )}
     </>
