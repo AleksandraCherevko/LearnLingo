@@ -8,14 +8,12 @@ interface ModalProps {
 }
 
 export default function Modal({ onClose, children }: ModalProps) {
-  // закрываем по клику на фон
   const handleBackdropClick = (event: React.MouseEvent<HTMLDivElement>) => {
     if (event.target === event.currentTarget) {
       onClose();
     }
   };
 
-  //   закрываем по ескейп
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -33,18 +31,20 @@ export default function Modal({ onClose, children }: ModalProps) {
 
   return createPortal(
     <div
-      className={css.backdrop}
+      className={css.modalOverlay}
       onClick={handleBackdropClick}
       role="dialog"
       aria-modal="true"
     >
-      <div className={css.modal}>
+      <div className={css.modalContent}>
         <button
-          className={css.closeButton}
+          className={css.closeBtn}
           onClick={onClose}
           aria-label="Close modal"
         >
-          &times;
+          <svg width="32" height="32" className={css.modalCloseBtnIcon}>
+            <use href="/symbol-defs.svg#icon-x"></use>
+          </svg>
         </button>
         {children}
       </div>
