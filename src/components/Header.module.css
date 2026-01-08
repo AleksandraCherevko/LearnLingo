@@ -1,0 +1,60 @@
+.headerContainer {
+  padding: 20px 40px;
+  display: flex;
+}
+
+.headerContainer :global(.container) {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.headerNavigation {
+  display: flex;
+  margin-right: auto;
+}
+
+.headerBtn {
+  display: flex;
+  gap: 16px;
+}
+
+.headerNavList {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.logo {
+  margin-right: 390px;
+}
+
+.headerNavLink {
+  line-height: 1.25;
+}
+
+.logInBtn {
+  padding-top: 14px;
+  padding-bottom: 14px;
+  display: flex;
+  font-weight: 700;
+  line-height: 1.25;
+  background-color: transparent;
+  border: none;
+  align-items: center;
+  align-content: center;
+  gap: 8px;
+}
+
+.registrBtn {
+  padding: 14px 39px;
+  display: flex;
+  font-weight: 700;
+  line-height: 1.25;
+  background-color: var(--text-color);
+  color: var(--background-color);
+  border: none;
+  align-items: center;
+  align-content: center;
+  border-radius: 12px;
+}
