@@ -4,6 +4,7 @@ import * as yup from "yup";
 import { useState } from "react";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../firebase";
+import { FirebaseError } from "firebase/app";
 
 type FormData = {
   name: string;
@@ -59,8 +60,13 @@ export default function RegistrationForm() {
 
       console.log("User registered:", user);
       console.log("Display Name:", user.displayName);
-    } catch (error: any) {
-      console.error("Registration error:", error.code, error.message);
+    } catch (error: unknown) {
+      const firebaseError = error as FirebaseError;
+      console.error(
+        "Registration error:",
+        firebaseError.code,
+        firebaseError.message
+      );
     }
   };
 
