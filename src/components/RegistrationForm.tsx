@@ -2,6 +2,8 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useState } from "react";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { auth } from "../firebase";
 
 type FormData = {
   name: string;
@@ -44,8 +46,26 @@ export default function RegistrationForm() {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data: FormData) => console.log(data);
+  const onSubmit = async (data: FormData) => {
+    try {
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        data.email,
+        data.password
+      );
+
+      const user = userCredential.user;
+      await updateProfile(user, { displayName: data.name });
+
+      console.log("User registered:", user);
+      console.log("Display Name:", user.displayName);
+    } catch (error: any) {
+      console.error("Registration error:", error.code, error.message);
+    }
+  };
+
   const togglePassword = () => setShowPassword((prev) => !prev);
+
   return (
     <div>
       <h3>Registration</h3>
