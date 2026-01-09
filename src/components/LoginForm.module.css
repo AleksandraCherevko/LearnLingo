@@ -1,0 +1,89 @@
+.loginFormContainer {
+  display: flex;
+  flex-direction: column;
+  width: 438px;
+}
+
+.loginFormTitle {
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 1.2;
+}
+
+.loginFormAfterTitle {
+  color: #121417cc;
+  margin-bottom: 40px;
+  line-height: 1.4;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.loginFormInput {
+  width: 100%;
+  padding: 16px 18px;
+  border-radius: 12px;
+  border: 1px solid #1214171a;
+  color: var(--text-color);
+  line-height: 1.37;
+}
+
+.loginFormInput:hover,
+.loginFormInput:focus {
+  border: 1px solid var(--btn-hover);
+  outline: none;
+}
+
+.loginFormWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.loginFormPosition {
+  margin-bottom: 18px;
+}
+.loginFormInputBtn {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.loginFormIcon {
+  display: block;
+  fill: transparent;
+  stroke: black;
+}
+
+.loginFormIcon:hover,
+.loginFormIcon:focus {stroke: var(--btn-hover)
+}
+
+.loginFormBtn {
+  margin-top: 40px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  border: none;
+  background-color: var(--btn-color);
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+.loginFormBtn:hover,
+.loginFormBtn:focus {
+  background-color: var(--btn-hover);
+}
+
+.loginFormError {
+  font-size: 10px;
+  color: #f2684e;
+}
