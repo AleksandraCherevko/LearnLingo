@@ -1,0 +1,67 @@
+.skillsContainer {
+  position: relative;
+  width: 100%;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.skillsContainer :global(.container) {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.skillsBorderSVG {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+.skillsList {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40px;
+  z-index: 1;
+}
+
+.skillsList {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 100px;
+  align-items: center;
+}
+
+.skillsItem {
+  display: flex;
+  flex-basis: calc((100% - 300px) / 4);
+}
+
+.skillsCount {
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 1.14;
+  position: relative;
+}
+.skillsCount::after {
+  content: "+";
+  margin-left: 4px;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 1.14;
+  color: inherit;
+  margin-right: 16px;
+}
+
+.skillsDescribe {
+  display: flex;
+  line-height: 1.28;
+  color: #121417b2;
+}
+
+.skillsItemContent {
+  display: flex;
+  align-items: center;
+}
