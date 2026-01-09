@@ -83,14 +83,16 @@ export default function LoginForm() {
 
       <div className={css.formContainer}>
         <form onSubmit={handleSubmit(onSubmit)} className={css.loginForm}>
-          <input
-            className={`${css.loginFormInput} ${css.loginFormPosition}`}
-            id="email"
-            {...register("email")}
-            type="text"
-            placeholder="Email"
-          />
-          <p className={css.loginFormError}>{errors.email?.message}</p>
+          <div className={css.loginFormWrapperPosition}>
+            <input
+              className={`${css.loginFormInput} ${css.loginFormPosition}`}
+              id="email"
+              {...register("email")}
+              type="text"
+              placeholder="Email"
+            />
+            <p className={css.loginFormError}>{errors.email?.message}</p>
+          </div>
           <div className={css.loginFormWrapper}>
             <input
               className={css.loginFormInput}

@@ -5,6 +5,7 @@ import { useState } from "react";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../firebase";
 import { FirebaseError } from "firebase/app";
+import css from "./RegisterForm.module.css";
 
 type FormData = {
   name: string;
@@ -73,35 +74,56 @@ export default function RegistrationForm() {
   const togglePassword = () => setShowPassword((prev) => !prev);
 
   return (
-    <div>
-      <h3>Registration</h3>
-      <p>
+    <div className={css.loginFormContainer}>
+      <h3 className={css.loginFormTitle}>Registration</h3>
+      <p className={css.loginFormAfterTitle}>
         Thank you for your interest in our platform! In order to register, we
         need some information. Please provide us with the following information
       </p>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <input id="name" {...register("name")} type="text" placeholder="Name" />
-        <p>{errors.name?.message}</p>
-        <input
-          id="email"
-          {...register("email")}
-          type="email"
-          placeholder="Email"
-        />
-        <p>{errors.email?.message}</p>
-        <input
-          id="password"
-          {...register("password")}
-          type={showPassword ? "text" : "password"}
-          placeholder="Password"
-        />
-        <button type="button" onClick={togglePassword}>
-          <svg width="20" height="20">
-            <use href="/symbol-defs.svg#icon-eye"></use>
-          </svg>
+      <form onSubmit={handleSubmit(onSubmit)} className={css.loginForm}>
+        <div className={css.loginFormWrapperPosition}>
+          <input
+            className={`${css.loginFormInput} ${css.loginFormPosition}`}
+            id="name"
+            {...register("name")}
+            type="text"
+            placeholder="Name"
+          />
+          <p className={css.loginFormError}>{errors.name?.message}</p>
+        </div>
+
+        <div className={css.loginFormWrapperPosition}>
+          <input
+            className={`${css.loginFormInput} ${css.loginFormPosition}`}
+            id="email"
+            {...register("email")}
+            type="email"
+            placeholder="Email"
+          />
+          <p className={css.loginFormError}>{errors.email?.message}</p>
+        </div>
+        <div className={css.loginFormWrapper}>
+          <input
+            className={css.loginFormInput}
+            id="password"
+            {...register("password")}
+            type={showPassword ? "text" : "password"}
+            placeholder="Password"
+          />
+          <button
+            type="button"
+            onClick={togglePassword}
+            className={css.loginFormInputBtn}
+          >
+            <svg width="20" height="20" className={css.loginFormIcon}>
+              <use href="/symbol-defs.svg#icon-eye"></use>
+            </svg>
+          </button>
+        </div>
+        <p className={css.loginFormError}>{errors.password?.message}</p>
+        <button type="submit" className={css.loginFormBtn}>
+          Sign up
         </button>
-        <p>{errors.password?.message}</p>
-        <button type="submit">Sign up</button>
       </form>
     </div>
   );

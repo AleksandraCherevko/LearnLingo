@@ -41,7 +41,9 @@
   position: relative;
   width: 100%;
 }
-
+.loginFormWrapperPosition {
+  margin-bottom: 18px;
+}
 .loginFormInputBtn {
   position: absolute;
   top: 50%;
@@ -85,8 +87,4 @@
   margin-top: 4px;
   font-size: 10px;
   color: #f2684e;
-}
-
-.loginFormWrapperPosition {
-  margin-bottom: 18px;
 }
