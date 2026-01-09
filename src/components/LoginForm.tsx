@@ -7,6 +7,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FirebaseError } from "firebase/app";
 import css from "./LoginForm.module.css";
+import Button from "./Button";
 
 type FormData = {
   email: string;
@@ -113,9 +114,10 @@ export default function LoginForm() {
           </div>
           <p className={css.loginFormError}>{errors.password?.message}</p>
           {authError && <p className={css.loginFormError}>{authError}</p>}
-          <button type="submit" className={css.loginFormBtn}>
+
+          <Button className={css.loginFormBtn} type="submit">
             Log In
-          </button>
+          </Button>
         </form>
       </div>
     </div>
