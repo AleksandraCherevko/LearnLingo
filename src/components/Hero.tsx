@@ -24,7 +24,7 @@ export default function Hero() {
         <div className={css.heroImgContainer}>
           <img
             className={css.heroImg}
-            src="/public/images/yellow.png"
+            src="/images/yellow.png"
             alt="girl with iMac in yellow theme"
             width={568}
             height={530}
