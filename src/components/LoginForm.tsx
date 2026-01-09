@@ -6,6 +6,7 @@ import { auth } from "../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FirebaseError } from "firebase/app";
+import css from "./LoginForm.module.css";
 
 type FormData = {
   email: string;
@@ -64,9 +65,7 @@ export default function LoginForm() {
           break;
 
         default:
-          setAuthError(
-            "Invalid email address or password!"
-          );
+          setAuthError("Invalid email address or password!");
           break;
       }
     }
@@ -75,33 +74,48 @@ export default function LoginForm() {
   const togglePassword = () => setShowPassword((prev) => !prev);
 
   return (
-    <div>
-      <h3>Log In</h3>
-      <p>Welcome back! Please enter your credentials to access your account.</p>
+    <div className={css.loginFormContainer}>
+      <h3 className={css.loginFormTitle}>Log In</h3>
+      <p className={css.loginFormAfterTitle}>
+        Welcome back! Please enter your credentials to access your account and
+        continue your search for an teacher.
+      </p>
 
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <input
-          id="email"
-          {...register("email")}
-          type="text"
-          placeholder="Email"
-        />
-        <p>{errors.email?.message}</p>
-        <input
-          id="password"
-          {...register("password")}
-          placeholder="Password"
-          type={showPassword ? "text" : "password"}
-        />
-        <button type="button" onClick={togglePassword}>
-          <svg width="20" height="20">
-            <use href="/symbol-defs.svg#icon-eye"></use>
-          </svg>
-        </button>
-        <p>{errors.password?.message}</p>
-        {authError && <p>{authError}</p>}
-        <button type="submit">Log In</button>
-      </form>
+      <div className={css.formContainer}>
+        <form onSubmit={handleSubmit(onSubmit)} className={css.loginForm}>
+          <input
+            className={`${css.loginFormInput} ${css.loginFormPosition}`}
+            id="email"
+            {...register("email")}
+            type="text"
+            placeholder="Email"
+          />
+          <p className={css.loginFormError}>{errors.email?.message}</p>
+          <div className={css.loginFormWrapper}>
+            <input
+              className={css.loginFormInput}
+              id="password"
+              {...register("password")}
+              placeholder="Password"
+              type={showPassword ? "text" : "password"}
+            />
+            <button
+              className={css.loginFormInputBtn}
+              type="button"
+              onClick={togglePassword}
+            >
+              <svg className={css.loginFormIcon} width="20" height="20">
+                <use href="/symbol-defs.svg#icon-eye"></use>
+              </svg>
+            </button>
+          </div>
+          <p className={css.loginFormError}>{errors.password?.message}</p>
+          {authError && <p className={css.loginFormError}>{authError}</p>}
+          <button type="submit" className={css.loginFormBtn}>
+            Log In
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
