@@ -3,6 +3,7 @@ import Modal from "./components/Modal";
 import { useState } from "react";
 import LoginForm from "./components/LoginForm";
 import RegistrationForm from "./components/RegistrationForm";
+import Hero from "./components/Hero";
 
 type ModalType = "login" | "register" | null;
 
@@ -29,6 +30,7 @@ export default function App() {
           {modalType === "register" && <RegistrationForm />}
         </Modal>
       )}
+      <Hero />
     </>
   );
 }

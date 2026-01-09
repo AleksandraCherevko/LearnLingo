@@ -6,6 +6,7 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../firebase";
 import { FirebaseError } from "firebase/app";
 import css from "./RegisterForm.module.css";
+import Button from "./Button";
 
 type FormData = {
   name: string;
@@ -121,9 +122,10 @@ export default function RegistrationForm() {
           </button>
         </div>
         <p className={css.loginFormError}>{errors.password?.message}</p>
-        <button type="submit" className={css.loginFormBtn}>
+
+        <Button className={css.loginFormBtn} type="submit">
           Sign up
-        </button>
+        </Button>
       </form>
     </div>
   );

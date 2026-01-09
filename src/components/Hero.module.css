@@ -1,0 +1,50 @@
+.hero {
+  display: flex;
+  padding-top: 20px;
+  padding-bottom: 24px;
+}
+
+.hero :global(.container) {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.heroText {
+  height: 530px;
+  background-color: var(--main-page-card-background-color);
+  border-radius: 30px;
+}
+
+.heroContent {
+  padding-top: 98px;
+  padding-bottom: 98px;
+  padding-left: 64px;
+  padding-right: 108px;
+}
+.heroTitle {
+  margin-bottom: 32px;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 48px;
+  line-height: 1.16;
+  letter-spacing: -2%;
+}
+.heroSpan {
+  font-weight: 400;
+  font-style: Italic;
+  font-size: 48px;
+  line-height: 1.16;
+  letter-spacing: -2%;
+  background-color: var(--pale-yellow);
+  border-radius: 20px;
+}
+.heroAfterTitle {
+  font-size: 16px;
+  line-height: 1.37;
+  width: 471px;
+}
+
+.heroBtn {
+  width: 267px;
+}
