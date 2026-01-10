@@ -58,3 +58,7 @@
   align-content: center;
   border-radius: 12px;
 }
+
+.logInIcon {
+  stroke: var(--accent-color);
+}

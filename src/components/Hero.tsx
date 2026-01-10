@@ -1,7 +1,10 @@
 import css from "./Hero.module.css";
 import Button from "./Button";
+import { useTheme } from "../theme/useTheme";
+import { themes } from "../theme/theme";
 
 export default function Hero() {
+  const { theme } = useTheme();
   return (
     <div className={css.hero}>
       <div className="container">
@@ -24,7 +27,7 @@ export default function Hero() {
         <div className={css.heroImgContainer}>
           <img
             className={css.heroImg}
-            src="/images/yellow.png"
+            src={themes[theme].heroImage}
             alt="girl with iMac in yellow theme"
             width={568}
             height={530}

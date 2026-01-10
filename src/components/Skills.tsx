@@ -18,7 +18,7 @@ export default function Skills() {
             width="1360"
             height="114.5"
             rx="30"
-            stroke="#f4c550"
+            stroke="var(--accent-color)"
             strokeWidth="1.5"
             strokeDasharray="15 15"
           />

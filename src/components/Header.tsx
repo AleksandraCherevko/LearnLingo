@@ -1,4 +1,6 @@
 import css from "./Header.module.css";
+import { useTheme } from "../theme/useTheme";
+import type { ThemeName } from "../theme/types";
 
 type HeaderProps = {
   onLogin: () => void;
@@ -6,6 +8,7 @@ type HeaderProps = {
 };
 
 export default function Header({ onLogin, onRegister }: HeaderProps) {
+  const { theme, setTheme } = useTheme();
   return (
     <div className={css.headerContainer}>
       <div className="container">
@@ -40,6 +43,16 @@ export default function Header({ onLogin, onRegister }: HeaderProps) {
             Registration
           </button>
         </div>
+        <select
+          value={theme}
+          onChange={(e) => setTheme(e.target.value as ThemeName)}
+        >
+          <option value="yellow">Yellow</option>
+          <option value="green">Green</option>
+          <option value="blue">Blue</option>
+          <option value="red">Red</option>
+          <option value="orange">Orange</option>
+        </select>
       </div>
     </div>
   );

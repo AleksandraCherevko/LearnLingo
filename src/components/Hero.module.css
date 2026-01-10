@@ -37,7 +37,7 @@
   font-size: 48px;
   line-height: 1.16;
   letter-spacing: -2%;
-  background-color: var(--pale-yellow);
+  background-color: var(--primary-color);
   border-radius: 20px;
 }
 .heroAfterTitle {

@@ -23,7 +23,6 @@ export default function App() {
   return (
     <>
       <Header onLogin={handleLogin} onRegister={handleRegister} />
-      {/* Modal */}
 
       {modalType && (
         <Modal onClose={closeModal}>
