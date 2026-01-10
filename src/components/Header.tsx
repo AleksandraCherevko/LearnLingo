@@ -44,6 +44,7 @@ export default function Header({ onLogin, onRegister }: HeaderProps) {
           </button>
         </div>
         <select
+          className={css.themeSelect}
           value={theme}
           onChange={(e) => setTheme(e.target.value as ThemeName)}
         >
