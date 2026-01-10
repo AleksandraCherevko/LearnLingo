@@ -3,6 +3,7 @@
   width: 100%;
   padding-top: 40px;
   padding-bottom: 40px;
+  margin-bottom: 32px;
 }
 .skillsContainer :global(.container) {
   width: 100%;
@@ -52,7 +53,6 @@
   font-size: 28px;
   line-height: 1.14;
   color: inherit;
-  margin-right: 16px;
 }
 
 .skillsDescribe {
@@ -61,7 +61,20 @@
   color: #121417b2;
 }
 
-.skillsItemContent {
+.skillsItemWrapper {
   display: flex;
   align-items: center;
+  gap: 16px;
+}
+
+.skillsItemStar {
+  width: 232px;
+}
+
+.skillsItemSub {
+  width: 159px;
+}
+
+.skillsItemExper {
+  width: 217px;
 }

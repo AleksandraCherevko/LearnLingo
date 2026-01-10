@@ -26,23 +26,33 @@ export default function Skills() {
         <div className={css.skillsBorder}>
           <ul className={css.skillsList}>
             <li className={css.skillsItem}>
-              <p className={css.skillsCount}>32,000</p>
-              <p className={css.skillsDescribe}>Experienced tutors</p>
+              <div
+                className={`${css.skillsItemWrapper} ${css.skillsItemExper}`}
+              >
+                <p className={css.skillsCount}>32,000</p>
+                <p className={css.skillsDescribe}>Experienced tutors</p>
+              </div>
             </li>
 
             <li className={css.skillsItem}>
-              <p className={css.skillsCount}>300,000</p>
-              <p className={css.skillsDescribe}>5-star tutor reviews</p>
+              <div className={`${css.skillsItemWrapper} ${css.skillsItemStar}`}>
+                <p className={css.skillsCount}>300,000</p>
+                <p className={css.skillsDescribe}>5-star tutor reviews</p>
+              </div>
             </li>
 
             <li className={css.skillsItem}>
-              <p className={css.skillsCount}>120</p>
-              <p className={css.skillsDescribe}>Subjects taught</p>
+              <div className={`${css.skillsItemWrapper} ${css.skillsItemSub}`}>
+                <p className={css.skillsCount}>120</p>
+                <p className={css.skillsDescribe}>Subjects taught</p>
+              </div>
             </li>
 
             <li className={css.skillsItem}>
-              <p className={css.skillsCount}>200</p>
-              <p className={css.skillsDescribe}>Tutor nationalities</p>
+              <div className={`${css.skillsItemWrapper} ${css.skillsItemSub}`}>
+                <p className={css.skillsCount}>200</p>
+                <p className={css.skillsDescribe}>Tutor nationalities</p>
+              </div>
             </li>
           </ul>
         </div>
