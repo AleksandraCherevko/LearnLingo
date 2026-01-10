@@ -3,10 +3,13 @@ import { ThemeContext } from "./ThemeContext";
 import { themes } from "./theme";
 import type { ThemeName } from "./types";
 
+const isThemeName = (value: string): value is ThemeName =>
+  ["yellow", "green", "blue", "red", "orange"].includes(value);
+
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<ThemeName>(() => {
     const saved = localStorage.getItem("theme");
-    return (saved as ThemeName) || "yellow";
+    return saved && isThemeName(saved) ? saved : "yellow";
   });
 
   useEffect(() => {
