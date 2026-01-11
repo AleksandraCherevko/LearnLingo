@@ -1,10 +1,12 @@
+import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
 import Modal from "./components/Modal";
 import { useState } from "react";
 import LoginForm from "./components/LoginForm";
 import RegistrationForm from "./components/RegistrationForm";
-import Hero from "./components/Hero";
-import Skills from "./components/Skills";
+
+import Teachers from "./pages/Teachers";
+import Home from "./pages/Home";
 
 type ModalType = "login" | "register" | null;
 
@@ -23,15 +25,17 @@ export default function App() {
   return (
     <>
       <Header onLogin={handleLogin} onRegister={handleRegister} />
-
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/teachers" element={<Teachers />} />
+      </Routes>
       {modalType && (
         <Modal onClose={closeModal}>
           {modalType === "login" && <LoginForm />}
           {modalType === "register" && <RegistrationForm />}
         </Modal>
       )}
-      <Hero />
-      <Skills />
+    
     </>
   );
 }
