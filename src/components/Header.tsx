@@ -1,6 +1,7 @@
 import css from "./Header.module.css";
 import { useTheme } from "../theme/useTheme";
 import type { ThemeName } from "../theme/types";
+import { Link } from "react-router-dom";
 
 type HeaderProps = {
   onLogin: () => void;
@@ -13,23 +14,21 @@ export default function Header({ onLogin, onRegister }: HeaderProps) {
     <div className={css.headerContainer}>
       <div className="container">
         <nav className={css.headerNavigation}>
-          <a href="/index.html" className={css.logo}>
-            <svg width="133" height="28">
+          <Link to="/" className={css.logo}>
+            <svg className={css.logoIcon} width="133" height="28">
               <use href="/symbol-defs.svg#icon-logo"></use>
             </svg>
-          </a>
-
+          </Link>
           <ul className={css.headerNavList}>
             <li className={css.headerNavItem}>
-              <a href="/index.html" className={css.headerNavLink}>
+              <Link to="/" className={css.headerNavLink}>
                 Home
-              </a>
+              </Link>
             </li>
-            <li className={css.headerNavItem}>
-              <a href="" className={css.headerNavLink}>
-                Teachers
-              </a>
-            </li>
+
+            <Link to="/teachers" className={css.headerNavLink}>
+              Teachers
+            </Link>
           </ul>
         </nav>
         <div className={css.headerBtn}>
