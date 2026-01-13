@@ -1,4 +1,4 @@
-//
+
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import * as yup from "yup";
@@ -8,10 +8,15 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { FirebaseError } from "firebase/app";
 import css from "./LoginForm.module.css";
 import Button from "./Button";
+import { useNavigate } from "react-router-dom";
 
 type FormData = {
   email: string;
   password: string;
+};
+
+type Props = {
+  onSuccess: () => void;
 };
 
 const schema = yup
@@ -29,9 +34,10 @@ const schema = yup
   })
   .required();
 
-export default function LoginForm() {
+export default function LoginForm({ onSuccess }: Props) {
   const [showPassword, setShowPassword] = useState(false);
   const [authError, setAuthError] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   const {
     register,
@@ -44,12 +50,9 @@ export default function LoginForm() {
   const onSubmit = async (data: FormData) => {
     setAuthError(null);
     try {
-      const userCredential = await signInWithEmailAndPassword(
-        auth,
-        data.email,
-        data.password
-      );
-      console.log("User signed in:", userCredential.user);
+      await signInWithEmailAndPassword(auth, data.email, data.password);
+      onSuccess();
+      navigate("/");
     } catch (error: unknown) {
       const firebaseError = error as FirebaseError;
       switch (firebaseError.code) {

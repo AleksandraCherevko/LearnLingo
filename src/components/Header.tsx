@@ -2,6 +2,9 @@ import css from "./Header.module.css";
 import { useTheme } from "../theme/useTheme";
 import type { ThemeName } from "../theme/types";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../auth/AuthContext";
+import { auth } from "../firebase";
 
 type HeaderProps = {
   onLogin: () => void;
@@ -10,6 +13,16 @@ type HeaderProps = {
 
 export default function Header({ onLogin, onRegister }: HeaderProps) {
   const { theme, setTheme } = useTheme();
+  const { user, isAuth } = useContext(AuthContext);
+
+  const handleLogout = async () => {
+    try {
+      await auth.signOut();
+      console.log("User logged out");
+    } catch (error) {
+      console.error("Logout error:", error);
+    }
+  };
   return (
     <div className={css.headerContainer}>
       <div className="container">
@@ -32,15 +45,40 @@ export default function Header({ onLogin, onRegister }: HeaderProps) {
           </ul>
         </nav>
         <div className={css.headerBtn}>
-          <button className={css.logInBtn} onClick={onLogin} type="button">
-            <svg className={css.logInIcon} width="20" height="20">
-              <use href="/symbol-defs.svg#icon-log-in"></use>
-            </svg>
-            Log in
-          </button>
-          <button className={css.registrBtn} onClick={onRegister} type="button">
-            Registration
-          </button>
+          {!isAuth ? (
+            <>
+              <button className={css.logInBtn} onClick={onLogin} type="button">
+                <svg className={css.logInIcon} width="20" height="20">
+                  <use href="/symbol-defs.svg#icon-log-in"></use>
+                </svg>
+                Log in
+              </button>
+              <button
+                className={css.registrBtn}
+                onClick={onRegister}
+                type="button"
+              >
+                Registration
+              </button>
+            </>
+          ) : (
+            <>
+              <p className={css.userNameHello}>
+                Hello,{" "}
+                <span className={css.userName}>
+                  {user?.displayName || user?.email}
+                </span>
+              </p>
+
+              <button
+                className={css.registrBtn}
+                onClick={handleLogout}
+                type="button"
+              >
+                Logout
+              </button>
+            </>
+          )}
         </div>
         <select
           className={css.themeSelect}

@@ -1,12 +1,14 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useState } from "react";
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { useContext, useState } from "react";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 import { FirebaseError } from "firebase/app";
 import css from "./RegisterForm.module.css";
 import Button from "./Button";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../auth/AuthContext";
 
 type FormData = {
   name: string;
@@ -38,9 +40,14 @@ const schema = yup
   })
   .required();
 
-export default function RegistrationForm() {
+export default function RegistrationForm({
+  onSuccess,
+}: {
+  onSuccess: () => void;
+}) {
   const [showPassword, setShowPassword] = useState(false);
-
+  const { setUser } = useContext(AuthContext);
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -56,12 +63,9 @@ export default function RegistrationForm() {
         data.email,
         data.password
       );
-
-      const user = userCredential.user;
-      await updateProfile(user, { displayName: data.name });
-
-      console.log("User registered:", user);
-      console.log("Display Name:", user.displayName);
+      setUser(userCredential.user);
+      onSuccess?.();
+      navigate("/");
     } catch (error: unknown) {
       const firebaseError = error as FirebaseError;
       console.error(

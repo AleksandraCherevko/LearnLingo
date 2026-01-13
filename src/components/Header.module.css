@@ -17,6 +17,7 @@
 .headerBtn {
   display: flex;
   gap: 16px;
+  align-items: center;
 }
 
 .headerNavList {
@@ -97,4 +98,16 @@
   background-color: var(--btn-hover);
   transform: scale(1.03);
   outline: none;
+}
+
+.userName {
+  font-weight: 400;
+  font-style: Italic;
+  background-color: var(--primary-color);
+  border-radius: 20px;
+}
+
+.userNameHello {
+  font-weight: 700;
+  line-height: 1.25;
 }
