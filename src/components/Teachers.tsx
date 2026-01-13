@@ -3,6 +3,7 @@ import { fetchTeachers } from "../services/teachersService";
 import type { Teacher } from "../types/teacher";
 import css from "./Teachers.module.css";
 import Button from "./Button";
+import { PropagateLoader } from "react-spinners";
 
 const ITEMS_PER_LOAD = 4;
 
@@ -24,7 +25,13 @@ export default function Teachers() {
     setExpandedCards((prev) => ({ ...prev, [index]: !prev[index] }));
   };
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) {
+    return (
+      <div className={css.loader}>
+        <PropagateLoader color="var(--accent-color)" />
+      </div>
+    );
+  }
 
   const visibleTeachers = teachers.slice(0, visibleCount);
 
@@ -84,7 +91,7 @@ export default function Teachers() {
                             <svg
                               width="16"
                               height="16"
-                              className={css.teachersSubscribeIcon}
+                              className={css.teachersRatingIcon}
                             >
                               <use href="/symbol-defs.svg#icon-star"></use>
                             </svg>
@@ -176,10 +183,11 @@ export default function Teachers() {
                                     <svg
                                       width="16"
                                       height="16"
-                                      className={css.teachersSubscribeIcon}
+                                      className={css.reviewerRatingIconSvg}
                                     >
                                       <use href="/symbol-defs.svg#icon-star"></use>
                                     </svg>
+
                                     <p className={css.reviewerRating}>
                                       ({review.reviewer_rating})
                                     </p>
