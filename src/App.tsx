@@ -31,11 +31,12 @@ export default function App() {
       </Routes>
       {modalType && (
         <Modal onClose={closeModal}>
-          {modalType === "login" && <LoginForm />}
-          {modalType === "register" && <RegistrationForm />}
+          {modalType === "login" && <LoginForm onSuccess={closeModal} />}
+          {modalType === "register" && (
+            <RegistrationForm onSuccess={closeModal} />
+          )}
         </Modal>
       )}
-    
     </>
   );
 }
