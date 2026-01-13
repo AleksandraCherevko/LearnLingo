@@ -112,7 +112,6 @@
 }
 
 .reviewerRating {
-  margin-top: 16px;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.28;
@@ -120,6 +119,7 @@
 }
 
 .reviewerComment {
+  margin-top: 16px;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
@@ -191,6 +191,7 @@
 
 .pretitleWrapperListList .pretitleWrapperItem {
   display: flex;
+  align-items: center;
 }
 
 .pretitleWrapperListList .pretitleWrapperItem:not(:last-child)::after {
@@ -217,9 +218,6 @@
   gap: 8px;
 }
 
-.teachersSkillsWrapper {
-  margin-bottom: 16px;
-}
 .teachersExperienceWrapper {
   margin-bottom: 32px;
 }
@@ -239,7 +237,7 @@
 
 .reviewerRatingIcon {
   display: flex;
-  align-content: center;
+  align-items: center;
   gap: 1px;
 }
 .reviewerNameIcon {
@@ -258,4 +256,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.loader {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.teachersRatingIcon {
+  margin-right: 4px;
+}
+
+.teachersBookIcon {
+  stroke: var(--text-color);
+  margin-right: 8px;
 }
