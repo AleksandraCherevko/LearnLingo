@@ -277,3 +277,19 @@
   fill: var(--accent-color);
   stroke: var(--accent-color);
 }
+
+.favouritsBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.favouritsBtnIcon {
+  fill: transparent;
+  stroke: #121417;
+}
+
+.favouriteActive .favouritsBtnIcon {
+  fill: #e74c3c;
+  stroke: #e74c3c;
+}

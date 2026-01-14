@@ -4,6 +4,8 @@ import Modal from "./components/Modal";
 import { useState } from "react";
 import LoginForm from "./components/LoginForm";
 import RegistrationForm from "./components/RegistrationForm";
+import Favorites from "./pages/Favorites";
+import PrivateRoute from "./routes/PrivateRoute";
 
 import Teachers from "./pages/Teachers";
 import Home from "./pages/Home";
@@ -28,6 +30,17 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/teachers" element={<Teachers />} />
+        <Route
+          path="/favorites"
+          element={
+            <PrivateRoute>
+              <Favorites />
+            </PrivateRoute>
+          }
+        />
+
+        {/* 404 на случай неизвестного пути */}
+        <Route path="*" element={<p>Page not found</p>} />
       </Routes>
       {modalType && (
         <Modal onClose={closeModal}>
