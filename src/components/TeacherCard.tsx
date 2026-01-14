@@ -81,11 +81,24 @@ export default function TeacherCard({
 
           <div className={css.favouritsBtnWrapper}>
             <button
-              className={`${css.favouritsBtn} ${isFavorite ? css.favouriteActive : ""}`}
+              className={css.favouritsBtn}
               onClick={() => onToggleFavorite(teacherKey)}
+              aria-label="Toggle favorite"
             >
-              <svg width="26" height="26" className={css.favouritsBtnIcon}>
-                <use href="/symbol-defs.svg#icon-hurt"></use>
+              <svg
+                width="26"
+                height="26"
+                className={`${css.favoritesIcon} ${
+                  isFavorite ? css.active : ""
+                }`}
+              >
+                <use
+                  href={
+                    isFavorite
+                      ? "/symbol-defs.svg#icon-heart-hover"
+                      : "/symbol-defs.svg#icon-heart"
+                  }
+                />
               </svg>
             </button>
           </div>
@@ -125,7 +138,47 @@ export default function TeacherCard({
             <div className={css.teachersExperienceWrapper}>
               <p className={css.teachersExperience}>{teacher.experience}</p>
             </div>
-            {/* Здесь можно добавить отзывы и уровни */}
+            <div className={css.teachersFeedbackListWrapper}>
+              <ul className={css.teachersFeedbackList}>
+                {teacher.reviews.map((review, idx) => (
+                  <li className={css.teachersFeedbackItem} key={idx}>
+                    <div className={css.reviewerNameIcon}>
+                      <div className={css.avatarCircle}>
+                        {review.reviewer_name[0]}
+                      </div>
+                      <div className={css.reviewerNameContainer}>
+                        <p className={css.reviewerName}>
+                          {review.reviewer_name}
+                        </p>
+                        <div className={css.reviewerRatingIcon}>
+                          <svg
+                            width="16"
+                            height="16"
+                            className={css.reviewerRatingIconSvg}
+                          >
+                            <use href="/symbol-defs.svg#icon-star"></use>{" "}
+                          </svg>
+                          <p className={css.reviewerRating}>
+                            ({review.reviewer_rating})
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <p className={css.reviewerComment}>{review.comment}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <ul className={css.teachersLevelsList}>
+              {teacher.levels.map((level, idx) => (
+                <li key={idx} className={css.teachersLevelsItem}>
+                  <p className={css.teachersLevels}>
+                    <span className={css.hash}>&#35;</span> {level}
+                  </p>
+                </li>
+              ))}
+            </ul>
+            <Button className={css.bookingBtn}>Book trial lesson</Button>
           </>
         )}
 
