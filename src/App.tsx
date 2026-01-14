@@ -39,7 +39,6 @@ export default function App() {
           }
         />
 
-        {/* 404 на случай неизвестного пути */}
         <Route path="*" element={<p>Page not found</p>} />
       </Routes>
       {modalType && (

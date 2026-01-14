@@ -31,18 +31,7 @@ export default function Header({ onLogin, onRegister }: HeaderProps) {
             <svg className={css.logoIcon} width="133" height="28">
               <use href="/symbol-defs.svg#icon-logo"></use>
             </svg>
-          </Link>
-          {/* <ul className={css.headerNavList}>
-            <li className={css.headerNavItem}>
-              <Link to="/" className={css.headerNavLink}>
-                Home
-              </Link>
-            </li>
-
-            <Link to="/teachers" className={css.headerNavLink}>
-              Teachers
-            </Link>
-          </ul> */}
+        </Link>
           <ul className={css.headerNavList}>
             <li className={css.headerNavItem}>
               <Link to="/" className={css.headerNavLink}>

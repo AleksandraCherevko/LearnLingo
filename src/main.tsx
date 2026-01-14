@@ -5,7 +5,8 @@ import App from "./App";
 import "modern-normalize";
 import { ThemeProvider } from "./theme/ThemeProvider";
 import { BrowserRouter } from "react-router-dom";
-import { AuthProvider } from "./auth/AuthProvider"; 
+import { AuthProvider } from "./auth/AuthProvider";
+import { Toaster } from "react-hot-toast";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -13,6 +14,12 @@ createRoot(document.getElementById("root")!).render(
       <BrowserRouter>
         <AuthProvider>
           <App />
+          <Toaster
+            position="top-right"
+            toastOptions={{
+              duration: 3000,
+            }}
+          />
         </AuthProvider>
       </BrowserRouter>
     </ThemeProvider>
