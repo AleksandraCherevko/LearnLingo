@@ -32,7 +32,7 @@ export default function Header({ onLogin, onRegister }: HeaderProps) {
               <use href="/symbol-defs.svg#icon-logo"></use>
             </svg>
           </Link>
-          <ul className={css.headerNavList}>
+          {/* <ul className={css.headerNavList}>
             <li className={css.headerNavItem}>
               <Link to="/" className={css.headerNavLink}>
                 Home
@@ -42,6 +42,25 @@ export default function Header({ onLogin, onRegister }: HeaderProps) {
             <Link to="/teachers" className={css.headerNavLink}>
               Teachers
             </Link>
+          </ul> */}
+          <ul className={css.headerNavList}>
+            <li className={css.headerNavItem}>
+              <Link to="/" className={css.headerNavLink}>
+                Home
+              </Link>
+            </li>
+            <li className={css.headerNavItem}>
+              <Link to="/teachers" className={css.headerNavLink}>
+                Teachers
+              </Link>
+            </li>
+            {isAuth && (
+              <li className={css.headerNavItem}>
+                <Link to="/favorites" className={css.headerNavLink}>
+                  Favorites
+                </Link>
+              </li>
+            )}
           </ul>
         </nav>
         <div className={css.headerBtn}>
