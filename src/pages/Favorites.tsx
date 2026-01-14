@@ -171,7 +171,6 @@ export default function Favorites() {
   return (
     <div className={css.teachersSection}>
       <div className="container">
-        <h1>Your Favorites</h1>
         {favoriteTeachers.length === 0 && <p>No favorites yet</p>}
 
         <div className={css.teachersList}>
