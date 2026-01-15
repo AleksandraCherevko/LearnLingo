@@ -55,3 +55,19 @@ http://localhost:5173
 - Click the ❤️ button to add a tutor to your favorites
 - Click Book trial lesson to open the booking form
 - All fields in the form are required and validated
+
+## Materials
+
+- Firebase documentation for REST API: firebase_docs
+- teachers.json for populating the database
+- layout:
+
+```
+https://www.figma.com/design/dewf5jVviSTuWMMyU3d8Mc/Learn-Lingo?node-id=4-137&t=MhxwMUpTEg2O1vAn-0
+```
+
+- technical specifications
+
+```
+https://docs.google.com/document/d/1ZB_MFgnnJj7t7OXtv5hESSwY6xRgVoACZKzgZczWc3Y/edit?tab=t.0
+```
