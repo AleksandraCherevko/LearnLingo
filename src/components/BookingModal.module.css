@@ -1,0 +1,38 @@
+.bookingModalTitle {
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 1.2;
+}
+
+.bookingModalAfterTitle {
+  line-height: 1.37;
+  width: 472px;
+  margin-bottom: 20px;
+}
+
+.bookingModalImg {
+  border-radius: 50%;
+}
+
+.bookingModalImgAfterTitle {
+  font-size: 12px;
+  line-height: 1.33;
+  color: var(--filter-title-color);
+}
+
+.bookingModalTeacherName {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.bookingModalTeacherNameWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.bookingModalImgNameWrapper {
+  display: flex;
+  gap: 14px;
+}
