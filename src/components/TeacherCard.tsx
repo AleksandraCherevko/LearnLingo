@@ -35,49 +35,55 @@ export default function TeacherCard({
 
       <div className={css.rightSide}>
         <div className={css.pretitleWrapper}>
-          <p className={css.teachersPreTitle}>Languages</p>
-          <div className={css.pretitleWrapperList}>
-            <ul className={css.pretitleWrapperListList}>
-              <li className={css.pretitleWrapperItem}>
-                <div className={css.pretitleWrapperItemIcon}>
-                  <svg width="16" height="16" className={css.teachersBookIcon}>
-                    <use href="/symbol-defs.svg#icon-book"></use>
-                  </svg>
-                  <p className={css.teachersSubscribe}>Lessons online</p>
-                </div>
-              </li>
-              <li className={css.pretitleWrapperItem}>
-                <div className={css.pretitleWrapperItemIcon}>
-                  <p className={css.teachersSubscribe}>
-                    Lessons done: {teacher.lessons_done}
-                  </p>
-                </div>
-              </li>
-              <li className={css.pretitleWrapperItem}>
-                <div className={css.pretitleWrapperItemIcon}>
-                  <svg
-                    width="16"
-                    height="16"
-                    className={css.teachersRatingIcon}
-                  >
-                    <use href="/symbol-defs.svg#icon-star"></use>
-                  </svg>
-                  <p className={css.teachersSubscribe}>
-                    Rating: {teacher.rating}
-                  </p>
-                </div>
-              </li>
-              <li className={css.pretitleWrapperItem}>
-                <div className={css.pretitleWrapperItemIcon}>
-                  <p className={css.teachersSubscribe}>
-                    Price / 1 hour:
-                    <span className={css.teachersSubscribeSpan}>
-                      {teacher.price_per_hour}$
-                    </span>
-                  </p>
-                </div>
-              </li>
-            </ul>
+          <div className={css.wrapperWrapp}>
+            <p className={css.teachersPreTitle}>Languages</p>
+            <div className={css.pretitleWrapperList}>
+              <ul className={css.pretitleWrapperListList}>
+                <li className={css.pretitleWrapperItem}>
+                  <div className={css.pretitleWrapperItemIcon}>
+                    <svg
+                      width="16"
+                      height="16"
+                      className={css.teachersBookIcon}
+                    >
+                      <use href="/symbol-defs.svg#icon-book"></use>
+                    </svg>
+                    <p className={css.teachersSubscribe}>Lessons online</p>
+                  </div>
+                </li>
+                <li className={css.pretitleWrapperItem}>
+                  <div className={css.pretitleWrapperItemIcon}>
+                    <p className={css.teachersSubscribe}>
+                      Lessons done: {teacher.lessons_done}
+                    </p>
+                  </div>
+                </li>
+                <li className={css.pretitleWrapperItem}>
+                  <div className={css.pretitleWrapperItemIcon}>
+                    <svg
+                      width="16"
+                      height="16"
+                      className={css.teachersRatingIcon}
+                    >
+                      <use href="/symbol-defs.svg#icon-star"></use>
+                    </svg>
+                    <p className={css.teachersSubscribe}>
+                      Rating: {teacher.rating}
+                    </p>
+                  </div>
+                </li>
+                <li className={css.pretitleWrapperItem}>
+                  <div className={css.pretitleWrapperItemIcon}>
+                    <p className={css.teachersSubscribe}>
+                      Price / 1 hour:
+                      <span className={css.teachersSubscribeSpan}>
+                        {teacher.price_per_hour}$
+                      </span>
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
 
           <div className={css.favouritsBtnWrapper}>

@@ -17,25 +17,25 @@ export default function Favorites() {
     return saved ? JSON.parse(saved) : [];
   });
 
-  // Загружаем всех учителей
+ 
   useEffect(() => {
     fetchTeachers()
       .then(setTeachers)
       .finally(() => setLoading(false));
   }, []);
 
-  // Обновляем favorites безопасно при смене пользователя
+
   useEffect(() => {
     const saved = user ? localStorage.getItem(`favorites_${user.uid}`) : null;
 
-    // Используем setTimeout, чтобы избежать предупреждения ESLint
+  
     const timer = setTimeout(() => {
       setFavorites(saved ? JSON.parse(saved) : []);
     }, 0);
 
     return () => clearTimeout(timer);
   }, [user]);
-  // Сохраняем изменения в localStorage
+
   useEffect(() => {
     if (!user) return;
     localStorage.setItem(`favorites_${user.uid}`, JSON.stringify(favorites));
