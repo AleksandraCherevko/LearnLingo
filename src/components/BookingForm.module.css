@@ -1,0 +1,88 @@
+.fieldset {
+  margin-top: 40px;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0;
+}
+
+.legend {
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.33;
+  width: 472px;
+}
+
+.radioLabelInput {
+  line-height: 1.37;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.radioLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.customRadio {
+  width: 24px;
+  height: 24px;
+  border: 2px solid #cfcfcf;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s ease;
+}
+.customRadio::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  transform: scale(0);
+  transition: transform 0.2s ease;
+}
+.radioLabelInput:checked + .customRadio {
+  border-color: var(--accent-color);
+}
+
+.radioLabelInput:checked + .customRadio::after {
+  transform: scale(1);
+}
+
+.bookingBtn {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.bookingFormContainer {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.bookingInput {
+  padding: 16px 18px;
+  border: 1px solid #1214171a;
+  border-radius: 12px;
+}
+
+.bookingInput:hover,
+.bookingInput:focus {
+  border: 1px solid var(--btn-hover);
+  outline: none;
+}
+.bookingError {
+  margin-top: 4px;
+  font-size: 10px;
+  color: #f2684e;
+}
+
+.bookingInputPosition {
+  margin-top: 18px;
+}

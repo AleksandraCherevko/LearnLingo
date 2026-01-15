@@ -2,6 +2,7 @@ import { useState } from "react";
 import type { Teacher } from "../types/teacher";
 import css from "./TeacherCard.module.css";
 import Button from "./Button";
+import BookingModal from "./BookingModal";
 
 type TeacherCardProps = {
   teacher: Teacher;
@@ -16,7 +17,7 @@ export default function TeacherCard({
 }: TeacherCardProps) {
   const [expanded, setExpanded] = useState(false);
   const teacherKey = `${teacher.name}-${teacher.surname}`;
-
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
   return (
     <div className={css.teacherCard}>
       <div className={css.leftSide}>
@@ -178,7 +179,17 @@ export default function TeacherCard({
                 </li>
               ))}
             </ul>
-            <Button className={css.bookingBtn}>Book trial lesson</Button>
+            <Button
+              className={css.bookingBtn}
+              onClick={() => setIsBookingOpen(true)}
+            >
+              Book trial lesson
+            </Button>
+            <BookingModal
+              isOpen={isBookingOpen}
+              onClose={() => setIsBookingOpen(false)}
+              teacher={teacher}
+            />
           </>
         )}
 
