@@ -17,18 +17,15 @@ export default function Favorites() {
     return saved ? JSON.parse(saved) : [];
   });
 
- 
   useEffect(() => {
     fetchTeachers()
       .then(setTeachers)
       .finally(() => setLoading(false));
   }, []);
 
-
   useEffect(() => {
     const saved = user ? localStorage.getItem(`favorites_${user.uid}`) : null;
 
-  
     const timer = setTimeout(() => {
       setFavorites(saved ? JSON.parse(saved) : []);
     }, 0);
@@ -81,7 +78,9 @@ export default function Favorites() {
   return (
     <div className={css.teachersSection}>
       <div className="container">
-        {favoriteTeachers.length === 0 && <p>No favorites yet</p>}
+        {favoriteTeachers.length === 0 && (
+          <p className={css.noFavoritesYet}>No favorites yet</p>
+        )}
 
         <div className={css.teachersList}>
           {favoriteTeachers.map((teacher) => (
