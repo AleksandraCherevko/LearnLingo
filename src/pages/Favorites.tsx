@@ -96,6 +96,7 @@ import type { Teacher } from "../types/teacher";
 import css from "../components/Teachers.module.css";
 import { PropagateLoader } from "react-spinners";
 import TeacherCard from "../components/TeacherCard";
+import toast from "react-hot-toast";
 
 export default function Favorites() {
   const { user } = useContext(AuthContext);
@@ -133,7 +134,7 @@ export default function Favorites() {
 
   const toggleFavorite = (teacherKey: string) => {
     if (!user) {
-      alert("This feature is available only for authorized users");
+      toast.error("This feature is available only for authorized users");
       return;
     }
     setFavorites((prev) =>
@@ -154,7 +155,7 @@ export default function Favorites() {
     return (
       <div className={css.teachersSection}>
         <div className="container">
-          <p>You need to be logged in to see your favorites.</p>
+          <p >You need to be logged in to see your favorites.</p>
         </div>
       </div>
     );
