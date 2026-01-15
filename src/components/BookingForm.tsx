@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import toast from "react-hot-toast";
+
 import css from "./BookingForm.module.css";
 import Button from "./Button";
 
@@ -34,7 +34,6 @@ export default function BookingForm({ onSuccess }: Props) {
 
   const onSubmit = (data: BookingFormData) => {
     console.log("Booking data:", data);
-    toast.success("Trial lesson booked!");
     onSuccess();
   };
 

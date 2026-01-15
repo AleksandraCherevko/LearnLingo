@@ -1,0 +1,16 @@
+.successModalWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.successModalTitle {
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 1.2;
+}
+
+.successModalText {
+  margin-top: 30px;
+  line-height: 1.37;
+}
