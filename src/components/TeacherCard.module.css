@@ -28,6 +28,7 @@
 }
 
 .teachersPreTitle {
+  margin-right: 192px;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
@@ -160,8 +161,6 @@
   padding: 24px;
   flex-direction: row;
   border-radius: 24px;
-  align-items: stretch;
-  justify-content: space-evenly;
 }
 
 .teachersList {
@@ -179,7 +178,10 @@
   display: flex;
   justify-content: space-between;
 }
-
+.wrapperWrapp {
+  display: flex;
+  margin-right: 0 auto;
+}
 .pretitleWrapperListList {
   display: flex;
 }
@@ -212,8 +214,11 @@
   flex-direction: column;
   gap: 8px;
 }
-
+.pretitleWrapperList {
+  width: 607px;
+}
 .teachersExperienceWrapper {
+  margin-top: 8px;
   margin-bottom: 32px;
 }
 
@@ -253,8 +258,6 @@
   align-items: center;
 }
 
-
-
 .teachersRatingIcon {
   margin-right: 4px;
 }
@@ -264,4 +267,8 @@
   border: none;
 }
 
-
+.teachersBookIcon {
+  fill: white;
+  stroke: black;
+  margin-right: 8px;
+}
