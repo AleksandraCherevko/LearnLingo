@@ -4,14 +4,14 @@ import "./global.css";
 import App from "./App";
 import "modern-normalize";
 import { ThemeProvider } from "./theme/ThemeProvider";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import { AuthProvider } from "./auth/AuthProvider";
 import { Toaster } from "react-hot-toast";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ThemeProvider>
-      <BrowserRouter>
+      <HashRouter>
         <AuthProvider>
           <App />
           <Toaster
@@ -21,7 +21,7 @@ createRoot(document.getElementById("root")!).render(
             }}
           />
         </AuthProvider>
-      </BrowserRouter>
+      </HashRouter>
     </ThemeProvider>
-  </StrictMode>
+  </StrictMode>,
 );
