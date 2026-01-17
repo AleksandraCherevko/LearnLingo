@@ -7,7 +7,9 @@
   background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
-  align-items: center;
+  overflow-y: auto;
+  padding: 24px;
+  z-index: 1000;
 }
 .modalContent {
   background: var(--background-color);
@@ -16,8 +18,9 @@
   position: relative;
   width: 100%;
   max-width: 560px;
-  max-height: 90vh;
+  max-height: calc(100vh - 48px);
   overflow-y: auto;
+  margin: auto 0;
 }
 .closeBtn {
   position: absolute;
