@@ -1,7 +1,8 @@
 .loginFormContainer {
   display: flex;
   flex-direction: column;
-  width: 438px;
+  max-width: 438px;
+  width: 100%;
 }
 
 .loginFormTitle {
