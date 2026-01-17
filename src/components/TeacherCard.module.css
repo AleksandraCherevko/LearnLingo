@@ -28,13 +28,16 @@
 }
 
 .teachersPreTitle {
-  margin-right: 192px;
+  margin-right: 100px;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
   color: var(--filter-title-color);
 }
-
+.gap {
+  display: flex;
+  gap: 60px;
+}
 .teachersSubscribe {
   font-weight: 500;
   font-size: 16px;
@@ -176,7 +179,6 @@
 
 .pretitleWrapper {
   display: flex;
-  justify-content: space-between;
 }
 .wrapperWrapp {
   display: flex;
